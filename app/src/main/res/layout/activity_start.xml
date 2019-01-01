@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:text="FOOD INTERN"
+        android:textSize="45dp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="285dp"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="124dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:text="Faster than you can Imagine..." />
+
+
+
+</RelativeLayout>
