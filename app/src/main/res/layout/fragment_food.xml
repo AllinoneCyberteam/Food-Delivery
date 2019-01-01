@@ -35,17 +35,6 @@
         android:layout_marginTop="160dp"
         android:text="Search" />
 
-    <TextView
-        android:id="@+id/cc"
-        android:layout_width="159dp"
-        android:layout_height="24dp"
-        android:layout_alignEnd="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="-43dp"
-        android:layout_marginTop="207dp"
-        android:text="Click any Image from LIST"
-        android:textSize="10dp" />
-
     <Gallery
         android:id="@+id/gallery1"
         android:layout_width="match_parent"
@@ -62,6 +51,14 @@
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY" />
 
+    <TextView
+        android:id="@+id/cc"
+        android:layout_width="159dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/gallery1"
+        android:text="Click any Image from LIST"
+        android:textSize="10dp" />
 
 
 </RelativeLayout>
