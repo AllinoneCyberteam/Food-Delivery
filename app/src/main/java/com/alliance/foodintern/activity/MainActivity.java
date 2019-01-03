@@ -18,18 +18,12 @@ import android.view.MenuItem;
 import com.alliance.foodintern.R;
 import com.alliance.foodintern.fragment.DashBoardFragment;
 import com.alliance.foodintern.fragment.FoodFragment;
+import com.alliance.foodintern.fragment.HomeFragment;
 import com.alliance.foodintern.fragment.NoificationFragment;
-
-import static com.alliance.foodintern.activity.SplashScreenActivity.HomeFragment.MY_PERMISSIONS_REQUEST_COERSE;
-import static com.alliance.foodintern.activity.SplashScreenActivity.HomeFragment.MY_PERMISSIONS_REQUEST_LOCATION;
-
 public class MainActivity extends AppCompatActivity {
 
-
-
-    SharedPreferences pref;
     private Toolbar mtoolbar;
-    SplashScreenActivity.HomeFragment mHomeFragment;
+    HomeFragment mHomeFragment;
     FoodFragment mFoodFragment;
     DashBoardFragment mDashBoardFragment;
     NoificationFragment mNoificationFragment;
@@ -54,14 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     getSupportActionBar().setTitle("NOTIFICATION");
                     loadFragment(mNoificationFragment);
-
-
-
                     return true;
+
                 case R.id.food:
                     getSupportActionBar().setTitle("FOOD");
                     loadFragment(mFoodFragment);
-
 
                     return true;
             }
@@ -80,11 +71,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        requestPermission();
-
-
-        mHomeFragment=new SplashScreenActivity.HomeFragment();
+        //requestPermission();
+        mHomeFragment=new HomeFragment();
         mDashBoardFragment=new DashBoardFragment();
         mFoodFragment=new FoodFragment();
         mNoificationFragment=new NoificationFragment();
@@ -95,60 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-         pref=getSharedPreferences("pref", Context.MODE_PRIVATE);
-
-
-
-        String data=pref.getString("START",null);
-        if(data==null){
-            Intent intent=new Intent(MainActivity.this,SplashScreenActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-
 
     }
 
-    private void requestPermission() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    MY_PERMISSIONS_REQUEST_LOCATION);
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                    MY_PERMISSIONS_REQUEST_COERSE);
-        }
-
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted, yay! Do the
-                    // location-related task you need to do.
-                    if (ContextCompat.checkSelfPermission(this,
-                            Manifest.permission.ACCESS_FINE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED) {
-                        requestPermission();
-                    }
-
-                } else
-                    requestPermission();
-            }
-        }
-    }
-
-            @Override
-            protected void onStop() {
-                super.onStop();
-                pref.edit().remove("START").apply();
-
-            }
 
 }

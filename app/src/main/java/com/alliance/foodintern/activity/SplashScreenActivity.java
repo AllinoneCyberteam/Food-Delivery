@@ -161,13 +161,13 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
 
-    protected boolean isOnline() {
+    private boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
-    public boolean checkConnection() {
+    private boolean checkConnection() {
         if (isOnline()) {
             return true;
             //Toast.makeText(MainActivity.this, "You are connected to Internet", Toast.LENGTH_SHORT).show();
