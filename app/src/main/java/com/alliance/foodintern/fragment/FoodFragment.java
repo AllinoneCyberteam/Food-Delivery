@@ -1,4 +1,4 @@
-package com.alliance.foodintern;
+package com.alliance.foodintern.fragment;
 
 
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.alliance.foodintern.R;
 
 import static android.support.v7.widget.TintTypedArray.obtainStyledAttributes;
 

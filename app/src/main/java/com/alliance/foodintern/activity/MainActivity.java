@@ -1,7 +1,6 @@
-package com.alliance.foodintern;
+package com.alliance.foodintern.activity;
 
 import android.Manifest;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,10 +14,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import static com.alliance.foodintern.HomeFragment.MY_PERMISSIONS_REQUEST_COERSE;
-import static com.alliance.foodintern.HomeFragment.MY_PERMISSIONS_REQUEST_LOCATION;
+import com.alliance.foodintern.R;
+import com.alliance.foodintern.fragment.DashBoardFragment;
+import com.alliance.foodintern.fragment.FoodFragment;
+import com.alliance.foodintern.fragment.NoificationFragment;
+
+import static com.alliance.foodintern.activity.SplashScreenActivity.HomeFragment.MY_PERMISSIONS_REQUEST_COERSE;
+import static com.alliance.foodintern.activity.SplashScreenActivity.HomeFragment.MY_PERMISSIONS_REQUEST_LOCATION;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences pref;
     private Toolbar mtoolbar;
-    HomeFragment mHomeFragment;
+    SplashScreenActivity.HomeFragment mHomeFragment;
     FoodFragment mFoodFragment;
     DashBoardFragment mDashBoardFragment;
     NoificationFragment mNoificationFragment;
@@ -81,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         requestPermission();
 
 
-        mHomeFragment=new HomeFragment();
+        mHomeFragment=new SplashScreenActivity.HomeFragment();
         mDashBoardFragment=new DashBoardFragment();
         mFoodFragment=new FoodFragment();
         mNoificationFragment=new NoificationFragment();
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         String data=pref.getString("START",null);
         if(data==null){
-            Intent intent=new Intent(MainActivity.this,StartActivity.class);
+            Intent intent=new Intent(MainActivity.this,SplashScreenActivity.class);
             startActivity(intent);
             finish();
         }
