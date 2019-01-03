@@ -20,6 +20,8 @@ import com.alliance.foodintern.fragment.DashBoardFragment;
 import com.alliance.foodintern.fragment.FoodFragment;
 import com.alliance.foodintern.fragment.HomeFragment;
 import com.alliance.foodintern.fragment.NoificationFragment;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mtoolbar;
@@ -80,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
         getSupportActionBar().setTitle("HOME");
         loadFragment(mHomeFragment);
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
 
     }
 
