@@ -1,5 +1,6 @@
 package com.alliance.foodintern.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemsAdapter.myVi
         return new myViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         FoodData data=foodList.get(position);
@@ -39,7 +41,7 @@ public class FoodItemsAdapter extends RecyclerView.Adapter<FoodItemsAdapter.myVi
         holder.discount.setText(data.getDiscount());
         holder.description.setText(data.getDescription());
         holder.name.setText(data.getFoodName());
-        holder.price.setText(data.getPrice());
+        holder.price.setText(mCtx.getString(R.string.rupee_symbol)+data.getPrice());
 
     }
 

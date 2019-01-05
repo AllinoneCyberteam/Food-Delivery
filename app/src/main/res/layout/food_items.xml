@@ -1,65 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp">
 
-
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:scaleType="centerCrop"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="8dp"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="name" />
-
-            <TextView
-                android:id="@+id/desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="desc" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:text="price" />
+                    android:layout_marginTop="2dp"
+                    android:textStyle="bold"
+                    tools:text="name" />
 
                 <TextView
-                    android:id="@+id/disc"
-                    android:textAlignment="viewEnd"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:text="discount" />
+                    android:layout_marginTop="2dp"
+                    tools:text="desc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:text="price" />
+
+                    <TextView
+                        android:id="@+id/disc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        tools:text="discount" />
+                </LinearLayout>
+
+
             </LinearLayout>
-
-
         </LinearLayout>
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
 </RelativeLayout>
