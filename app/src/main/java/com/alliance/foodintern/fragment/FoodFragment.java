@@ -42,6 +42,8 @@ public class FoodFragment extends Fragment {
         // Required empty public constructor
     }
 
+
+    //TODO adding the progress bar in this fragment
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FoodItemsAdapter mAdapter;
@@ -89,7 +91,6 @@ public class FoodFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 
