@@ -36,6 +36,4 @@
         android:layout_centerHorizontal="true"
         android:text="Faster than you can Imagine..." />
 
-
-
 </RelativeLayout>

@@ -39,6 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:textStyle="bold"
+                    android:textColor="@color/blackColor"
                     tools:text="name" />
 
                 <TextView

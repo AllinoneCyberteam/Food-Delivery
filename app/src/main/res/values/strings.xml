@@ -8,4 +8,6 @@
     <string name="title">Your cart is Empty, Please add some Items.</string>
     <string name="hello_blank_fragment">hello blank fragment</string>
     <string name="rupee_symbol">₹</string>
+    <string name="add">ADD</string>
+    <string name="discount">Discount:</string>
 </resources>
