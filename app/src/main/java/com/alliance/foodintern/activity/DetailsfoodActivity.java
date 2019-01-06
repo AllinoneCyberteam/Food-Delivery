@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alliance.foodintern.R;
+import com.alliance.foodintern.adapter.SqlDataBaseAdapter;
 import com.bumptech.glide.Glide;
 
 public class DetailsfoodActivity extends AppCompatActivity
@@ -20,7 +21,7 @@ public class DetailsfoodActivity extends AppCompatActivity
     int total_price;
     ImageView mImageView;
     TextView mfoodname,mdes,mdis,mprice,price_total,mText;
-    Button mButton;
+    Button mButton,maddCart;
     SlidingDrawer mSlidingDrawer;
 
     @Override
@@ -37,6 +38,7 @@ public class DetailsfoodActivity extends AppCompatActivity
         price_total=findViewById(R.id.total_amount);
         mText=findViewById(R.id.number_of_items);
         mButton=findViewById(R.id.inc);
+        maddCart=findViewById(R.id.add_cart);
         mSlidingDrawer=findViewById(R.id.SlidingDrawer);
         mSlidingDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
             @Override
@@ -66,6 +68,25 @@ public class DetailsfoodActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "Reached Maximum Limit! ", Toast.LENGTH_SHORT).show();
                 }
                 price_total.setText(getString(R.string.rupee_symbol)+total_price);
+            }
+        });
+
+        maddCart.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                int discount=Integer.parseInt(getIntent().getStringExtra("discount"));
+                int price=Integer.parseInt(getIntent().getStringExtra("price_of_food"));
+                int noOfItems=Integer.parseInt(mText.getText().toString());
+
+                SqlDataBaseAdapter db = new SqlDataBaseAdapter(getApplication());
+                db.open();
+                long id = db.insert(getIntent().getStringExtra("food_name"),getIntent().getStringExtra("details_of_food"),discount,price,noOfItems);
+                if(id>=1)
+                {
+                    Toast.makeText(DetailsfoodActivity.this, "Items Added to the Cart Successfully...", Toast.LENGTH_SHORT).show();
+                }
+                db.close();
             }
         });
     }
