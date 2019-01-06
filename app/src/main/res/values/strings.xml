@@ -10,4 +10,5 @@
     <string name="rupee_symbol">₹</string>
     <string name="add">ADD</string>
     <string name="discount">Discount:</string>
+    <string name="discount_applied">Discount Applied:</string>
 </resources>
