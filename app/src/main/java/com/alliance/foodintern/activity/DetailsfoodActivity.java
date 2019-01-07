@@ -78,12 +78,11 @@ public class DetailsfoodActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 int discount=Integer.parseInt(getIntent().getStringExtra("discount"));
-                int price=Integer.parseInt(getIntent().getStringExtra("price_of_food"));
                 int noOfItems=Integer.parseInt(mText.getText().toString());
 
                 SqlDataBaseAdapter db = new SqlDataBaseAdapter(getApplication());
                 db.open();
-                long id = db.insert(getIntent().getStringExtra("food_name"),getIntent().getStringExtra("details_of_food"),discount,price,noOfItems);
+                long id = db.insert(getIntent().getStringExtra("food_name"),getIntent().getStringExtra("details_of_food"),discount,price_total.getText().toString(),noOfItems);
                 if(id>=1)
                 {
                     Toast.makeText(DetailsfoodActivity.this, "Items Added to the Cart Successfully...", Toast.LENGTH_SHORT).show();

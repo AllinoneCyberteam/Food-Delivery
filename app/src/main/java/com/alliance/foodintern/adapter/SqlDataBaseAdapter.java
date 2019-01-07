@@ -22,7 +22,7 @@ public class SqlDataBaseAdapter
     static final String DATABASE_TABLE = "foodDetails";
     static final int DATABASE_VERSION = 1;
 
-    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price integer not null, food_items integer not null);";
+    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price text not null, food_items integer not null);";
 
     private final Context ctx;
     private DatabaseHelper DbHelper;
@@ -68,7 +68,7 @@ public class SqlDataBaseAdapter
     {
         DbHelper.close();
     }
-    public long insert(String name,String des,Integer discount,Integer price,Integer no)
+    public long insert(String name,String des,Integer discount,String price,Integer no)
     {
         ContentValues initialValues = new ContentValues();
 
