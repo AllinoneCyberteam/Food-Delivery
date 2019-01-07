@@ -1,5 +1,6 @@
 package com.alliance.foodintern.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ public class DetailsfoodActivity extends AppCompatActivity
     int total_price;
     ImageView mImageView;
     TextView mfoodname,mdes,mdis,mprice,price_total,mText;
-    Button mButton,maddCart;
+    Button mButton,maddCart,mcheckOut;
     SlidingDrawer mSlidingDrawer;
 
     @Override
@@ -35,6 +36,7 @@ public class DetailsfoodActivity extends AppCompatActivity
         mdes=findViewById(R.id.textView2);
         mdis=findViewById(R.id.textView3);
         mprice=findViewById(R.id.text4);
+        mcheckOut=findViewById(R.id.checkout);
         price_total=findViewById(R.id.total_amount);
         mText=findViewById(R.id.number_of_items);
         mButton=findViewById(R.id.inc);
@@ -87,6 +89,14 @@ public class DetailsfoodActivity extends AppCompatActivity
                     Toast.makeText(DetailsfoodActivity.this, "Items Added to the Cart Successfully...", Toast.LENGTH_SHORT).show();
                 }
                 db.close();
+            }
+        });
+        mcheckOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(getApplicationContext(),CartActivity.class);
+                startActivity(intent);
             }
         });
     }
