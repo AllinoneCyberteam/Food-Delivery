@@ -21,8 +21,6 @@
         android:layout_below="@+id/maintoolbar"
         android:id="@+id/container">
 
-
-
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView

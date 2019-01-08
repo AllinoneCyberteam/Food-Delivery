@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.alliance.foodintern.R;
@@ -47,6 +48,7 @@ public class FoodFragment extends Fragment {
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FoodItemsAdapter mAdapter;
+    ProgressBar mProgressBar;
     ArrayList<FoodData> foodDataArrayList;
 
     @Override
@@ -63,6 +65,8 @@ public class FoodFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         foodDataArrayList=new ArrayList<>();
         recyclerView = view.findViewById(R.id.recycler);
+        mProgressBar=view.findViewById(R.id.foodprogress);
+        mProgressBar.setVisibility(View.VISIBLE);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         mAdapter= new FoodItemsAdapter(getContext(),foodDataArrayList);
@@ -84,6 +88,7 @@ public class FoodFragment extends Fragment {
                         Log.e("asdghjklkj",name);
                         foodDataArrayList.add(new FoodData(discount,name,desc,price,image,menuId));
                     }
+                    mProgressBar.setVisibility(View.INVISIBLE);
 
                 }
                 mAdapter.notifyDataSetChanged();

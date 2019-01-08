@@ -7,4 +7,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title">Your cart is Empty, Please add some Items.</string>
     <string name="hello_blank_fragment">hello blank fragment</string>
+    <string name="rupee_symbol">₹</string>
+    <string name="add">ADD</string>
+    <string name="discount">Discount:</string>
+    <string name="discount_applied">Discount Applied:</string>
 </resources>
