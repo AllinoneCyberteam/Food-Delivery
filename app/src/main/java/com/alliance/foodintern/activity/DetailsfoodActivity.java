@@ -94,7 +94,8 @@ public class DetailsfoodActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(getApplicationContext(),CartActivity.class);
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("key","value");
                 startActivity(intent);
             }
         });

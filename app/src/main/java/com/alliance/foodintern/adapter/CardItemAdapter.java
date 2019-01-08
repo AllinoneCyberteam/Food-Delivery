@@ -42,21 +42,9 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
         final CardItem data=cardItems.get(position);
 
         holder.name.setText(data.getFood_name());
-        holder.price.setText(mCtx.getString(R.string.rupee_symbol)+data.getFood_price());
+        holder.price.setText(data.getFood_price());
         Log.d("TAG", "onBindViewHolder: "+data.getFood_price());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(mCtx, DetailsfoodActivity.class);
-//                Bundle bundle=new Bundle();
-//                intent.putExtra("food_image",data.getImage());
-//                intent.putExtra("food_name",data.getFoodName());
-//                intent.putExtra("details_of_food",data.getDescription());
-//                intent.putExtra("discount",data.getDiscount());
-//                intent.putExtra("price_of_food",data.getPrice());
-//                mCtx.startActivity(intent);
-//            }
-//        });
+
 
     }
 
