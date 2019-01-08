@@ -3,6 +3,7 @@ package com.alliance.foodintern;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -49,8 +50,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(lat, lon);
-        mMap.addMarker(new MarkerOptions().position(sydney).title(getIntent().getStringExtra("name")));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng map = new LatLng(lat, lon);
+        mMap.addMarker(new MarkerOptions().position(map).title(getIntent().getStringExtra("name")));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(map,15));
+        Toast.makeText(this, getIntent().getStringExtra("fullAddress"), Toast.LENGTH_SHORT).show();
     }
 }

@@ -83,9 +83,7 @@ public class NoificationFragment extends Fragment {
         {
             @Override
             public void onClick(View v) {
-          getCurrentLocation();
-                //Uri mapUri = Uri.parse("geo:0,0?q="+latitude+","+longitude);
-
+                getCurrentLocation();
             }
 
             String longitude,latitude;
@@ -122,7 +120,7 @@ public class NoificationFragment extends Fragment {
 
                         /*------- To get city name from coordinates -------- */
                         String cityName = null;
-
+                        String address= null;
                         try {
                             Locale pname = Locale.getDefault();
                             if (pname != null) {
@@ -133,7 +131,22 @@ public class NoificationFragment extends Fragment {
                                 if (addresses.size() > 0) {
                                     System.out.println(addresses.get(0).getLocality());
                                     cityName = addresses.get(0).getSubLocality();
-
+                                    if(addresses.get(0).getSubThoroughfare()!=null)
+                                    {
+                                        address += addresses.get(0).getThoroughfare() + ", ";
+                                    }
+                                    if(addresses.get(0).getThoroughfare()!=null) {
+                                        address += addresses.get(0).getSubThoroughfare() + ", ";
+                                    }
+                                    if(addresses.get(0).getLocality()!=null) {
+                                        address += addresses.get(0).getLocality() + ", ";
+                                    }
+                                    if(addresses.get(0).getPostalCode()!=null) {
+                                        address += addresses.get(0).getPostalCode() + ", ";
+                                    }
+                                    if(addresses.get(0).getCountryName()!=null) {
+                                        address += addresses.get(0).getCountryName() + ", ";
+                                    }
                                 }
                             }
 
@@ -146,6 +159,7 @@ public class NoificationFragment extends Fragment {
                         mapIntent.putExtra("lat",latitude);
                         mapIntent.putExtra("lon",longitude);
                         mapIntent.putExtra("name",cityName);
+                        mapIntent.putExtra("fullAddress",address);
                         //mapIntent.setPackage("com.google.android.apps.maps");
                         startActivity(mapIntent);
 
@@ -181,6 +195,7 @@ public class NoificationFragment extends Fragment {
         Cursor c = db.retrieve();
         if (c.moveToFirst())
         {
+            view.findViewById(R.id.r2_price).setVisibility(View.VISIBLE);
             do {
                 CardItem item=new CardItem();
                 String price=c.getString(4);
