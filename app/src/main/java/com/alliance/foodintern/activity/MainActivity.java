@@ -88,5 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (getIntent().getStringExtra("key") != null) {
+            loadFragment(mNoificationFragment);
+        }
+    }
 }
