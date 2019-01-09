@@ -11,6 +11,7 @@ import android.location.Geocoder;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -46,8 +47,9 @@ public class NoificationFragment extends Fragment {
     RecyclerView mCardRecycler;
     ArrayList<CardItem> mCursorList;
     CardItemAdapter mCardItemAdapter;
-    TextView st,dis,tax,mtotal;
+    TextView st,dis,tax,mtotal,progressText;
     Button order;
+    ProgressBar mProgressBar;
     private static final int ERROR_REQUEST = 9001;
     private static final String TAG ="TAG" ;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -62,6 +64,7 @@ public class NoificationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        int grandtotal=0;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_noification, container, false);
         SqlDataBaseAdapter db = new SqlDataBaseAdapter(view.getContext());
@@ -71,7 +74,10 @@ public class NoificationFragment extends Fragment {
         tax=view.findViewById(R.id.ts);
         mtotal=view.findViewById(R.id.total_price);
         order=view.findViewById(R.id.order);
-
+        mProgressBar=view.findViewById(R.id.wait);
+        progressText=view.findViewById(R.id.progressText);
+        mProgressBar.setVisibility(View.INVISIBLE);
+        progressText.setVisibility(View.INVISIBLE);
         mCursorList=new ArrayList<>();
 
         mCardItemAdapter=new CardItemAdapter(getContext(),mCursorList);
@@ -83,10 +89,14 @@ public class NoificationFragment extends Fragment {
         {
             @Override
             public void onClick(View v) {
+                mProgressBar.setVisibility(View.VISIBLE);
+                progressText.setVisibility(View.VISIBLE);
                 getCurrentLocation();
+
             }
 
             String longitude,latitude;
+
                 private void getCurrentLocation() {
 
                     LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
@@ -123,7 +133,8 @@ public class NoificationFragment extends Fragment {
                         String address= null;
                         try {
                             Locale pname = Locale.getDefault();
-                            if (pname != null) {
+                            if (pname != null)
+                            {
                                 Geocoder gcd = new Geocoder(getContext(), pname);
                                 List<Address> addresses;
                                 addresses = gcd.getFromLocation(loc.getLatitude(),
@@ -160,6 +171,9 @@ public class NoificationFragment extends Fragment {
                         mapIntent.putExtra("lon",longitude);
                         mapIntent.putExtra("name",cityName);
                         mapIntent.putExtra("fullAddress",address);
+
+                        mProgressBar.setVisibility(View.INVISIBLE);
+                        progressText.setVisibility(View.INVISIBLE);
                         //mapIntent.setPackage("com.google.android.apps.maps");
                         startActivity(mapIntent);
 
@@ -188,7 +202,7 @@ public class NoificationFragment extends Fragment {
 
 
         db.open();
-        int total=0,grandtotal=0;
+        int total=0;
         int discount_tot=0;
         int count=0;
 

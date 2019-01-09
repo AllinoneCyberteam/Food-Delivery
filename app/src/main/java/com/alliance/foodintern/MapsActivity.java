@@ -1,8 +1,13 @@
 package com.alliance.foodintern;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,14 +18,33 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
+    TextView location;
+    EditText address,landmark;
     private GoogleMap mMap;
+    Button confirmLocation;
     double lat,lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        location=findViewById(R.id.location);
+        address=findViewById(R.id.address);
+        landmark=findViewById(R.id.landmark);
+        confirmLocation=findViewById(R.id.confirm_location);
+
+
+        confirmLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),SuccessPage.class);
+
+                    intent.putExtra("landmark",landmark.getText().toString());
+                    intent.putExtra("address",address.getText().toString());
+                intent.putExtra("finalAddress",getIntent().getStringExtra("fullAddress"));
+                startActivity(intent);
+            }
+        });
         lat=Double.parseDouble(getIntent().getStringExtra("lat").substring(9));
         lon=Double.parseDouble(getIntent().getStringExtra("lon").substring(10));
         Log.d("TAG", "onCreate: "+lat+"\n"+lon);
@@ -53,6 +77,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng map = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(map).title(getIntent().getStringExtra("name")));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(map,15));
-        Toast.makeText(this, getIntent().getStringExtra("fullAddress"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, getIntent().getStringExtra("fullAddress"), Toast.LENGTH_SHORT).show();
+        location.setText("Current Location:"+getIntent().getStringExtra("fullAddress"));
     }
 }

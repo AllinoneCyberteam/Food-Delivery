@@ -7,16 +7,36 @@
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
+        android:id="@+id/r1_ordered_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/r1_ordered_items"
-        android:layout_above="@+id/r2_price">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/card_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="204dp" />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/wait"
+            android:layout_marginStart="125dp"
+            android:text="Please wait....." />
 
     </RelativeLayout>
 
@@ -158,7 +178,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/rl_empty"
             android:layout_marginBottom="122dp"
             android:background="?android:attr/listDivider" />
 
