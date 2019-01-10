@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_notifications:
-                    getSupportActionBar().setTitle("NOTIFICATION");
+                    getSupportActionBar().setTitle("CART");
                     loadFragment(mNoificationFragment);
                     return true;
 

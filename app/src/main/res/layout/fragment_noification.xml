@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/r1_ordered_items"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
@@ -31,12 +31,12 @@
 
         <TextView
             android:id="@+id/progressText"
-            android:layout_width="wrap_content"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/wait"
-            android:layout_marginStart="125dp"
-            android:text="Please wait....." />
+            android:layout_marginStart="19dp"
+            android:text="@string/please_wait_while_we_are_retreiving_your_current_location" />
 
     </RelativeLayout>
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Sub Total"
+            android:text="@string/sub_total"
             android:textSize="10dp" />
 
         <TextView
@@ -64,7 +64,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="29dp"
-            android:text="Discount"
+            android:text="@string/discount_label"
             android:textSize="10dp" />
 
         <TextView
@@ -74,7 +74,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="55dp"
-            android:text="Taxes and charges"
+            android:text="@string/taxes_and_charges"
             android:textSize="10dp" />
 
         <TextView
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:text="TOTAL"
+            android:text="@string/total"
             android:textColor="@color/blackColor"
             android:textStyle="bold" />
 

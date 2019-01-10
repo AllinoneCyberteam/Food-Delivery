@@ -10,8 +10,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -26,9 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alliance.foodintern.MapsActivity;
+import com.alliance.foodintern.activity.MapsActivity;
 import com.alliance.foodintern.R;
-import com.alliance.foodintern.activity.MainActivity;
 import com.alliance.foodintern.adapter.CardItemAdapter;
 import com.alliance.foodintern.adapter.SqlDataBaseAdapter;
 import com.alliance.foodintern.model.CardItem;
@@ -54,6 +51,7 @@ public class NoificationFragment extends Fragment {
     private static final String TAG ="TAG" ;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static final int MY_PERMISSIONS_REQUEST_COERSE = 98;
+     int finalGrandtotal=0;
 
 
     public NoificationFragment() {
@@ -166,11 +164,14 @@ public class NoificationFragment extends Fragment {
                         }
                         String s = longitude + "\n" + latitude + "\n\nMy Current City is: " + cityName;
                         Toast.makeText(getContext(), ""+s, Toast.LENGTH_SHORT).show();
+
                         Intent mapIntent = new Intent(getActivity(), MapsActivity.class);
                         mapIntent.putExtra("lat",latitude);
                         mapIntent.putExtra("lon",longitude);
                         mapIntent.putExtra("name",cityName);
                         mapIntent.putExtra("fullAddress",address);
+                        //Toast.makeText(getContext(), "AAA"+finalGrandtotal, Toast.LENGTH_SHORT).show();
+                        mapIntent.putExtra("totalAmount", String.valueOf(finalGrandtotal));
 
                         mProgressBar.setVisibility(View.INVISIBLE);
                         progressText.setVisibility(View.INVISIBLE);
@@ -220,14 +221,16 @@ public class NoificationFragment extends Fragment {
                 total+=temp;
                 item.setFood_price(price);
                 item.setFood_name(c.getString(1));
+                item.setId(c.getInt(0));
                 mCursorList.add(item);
 
             } while (c.moveToNext());
             st.setText(getString(R.string.rupee_symbol)+total);
-            dis.setText(getString(R.string.rupee_symbol)+total*discount_tot/count*100);
-            tax.setText(getString(R.string.minus)+getString(R.string.rupee_symbol)+total*6/100);
+            dis.setText(getString(R.string.minus_symbol)+getString(R.string.rupee_symbol)+total*discount_tot/count*100);
+            tax.setText(getString(R.string.plus_symbol)+getString(R.string.rupee_symbol)+total*6/100);
             grandtotal=total-(total*discount_tot/count*100)+(total*6/100);
             mtotal.setText(getString(R.string.rupee_symbol)+grandtotal);
+            finalGrandtotal= grandtotal;
             mCardItemAdapter.notifyDataSetChanged();
         }else{
             view.findViewById(R.id.rl_empty).setVisibility(View.VISIBLE);

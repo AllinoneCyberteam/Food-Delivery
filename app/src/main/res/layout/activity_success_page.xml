@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SuccessPage">
+    tools:context=".activity.SuccessPage">
 
     <TextView
         android:textStyle="bold"
@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="72dp"
-        android:text="Your Order has been Placed." />
+        android:text="@string/your_order_has_been_placed" />
 
     <ImageView
         android:id="@+id/success_img"
@@ -74,6 +74,26 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="92dp"
         android:textColor="@color/blackColor"
-        android:text="The amonut of your Food will be collected after the Dilvery" />
+        android:text="@string/the_amonut_of_your_food_will_be_collected_after_the_dilvery" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/home_button"
+        android:layout_centerHorizontal="true"
+        android:text="Click here for Main Page" />
+
+    <TextView
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="147dp"
+        android:text="@string/home"
+        android:textAllCaps="true"
+        android:textColor="@color/redColor"
+        android:textColorLink="@color/lightBlueColor"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 </RelativeLayout>

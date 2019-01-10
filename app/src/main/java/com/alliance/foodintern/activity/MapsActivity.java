@@ -1,8 +1,9 @@
-package com.alliance.foodintern;
+package com.alliance.foodintern.activity;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alliance.foodintern.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,16 +35,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         landmark=findViewById(R.id.landmark);
         confirmLocation=findViewById(R.id.confirm_location);
 
+final String tot=getIntent().getStringExtra("totalAmount");
+
 
         confirmLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),SuccessPage.class);
+                String land=landmark.getText().toString();
+                String addrs=address.getText().toString();
+                if(!TextUtils.isEmpty(land) && !TextUtils.isEmpty(addrs)){
+                    Intent intent=new Intent(getApplicationContext(),SuccessPage.class);
+                    intent.putExtra("landmark",land);
+                    intent.putExtra("address",addrs);
+                    intent.putExtra("totalAmount",tot);
+                    intent.putExtra("finalAddress",getIntent().getStringExtra("fullAddress"));
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(MapsActivity.this, "Please fill address and landmark", Toast.LENGTH_SHORT).show();
+                }
 
-                    intent.putExtra("landmark",landmark.getText().toString());
-                    intent.putExtra("address",address.getText().toString());
-                intent.putExtra("finalAddress",getIntent().getStringExtra("fullAddress"));
-                startActivity(intent);
             }
         });
         lat=Double.parseDouble(getIntent().getStringExtra("lat").substring(9));
