@@ -4,6 +4,7 @@ package com.alliance.foodintern.fragment;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.location.Address;
@@ -11,6 +12,7 @@ import android.location.Geocoder;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alliance.foodintern.activity.MainActivity;
 import com.alliance.foodintern.activity.MapsActivity;
 import com.alliance.foodintern.R;
 import com.alliance.foodintern.adapter.CardItemAdapter;
@@ -34,6 +37,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -44,7 +51,7 @@ public class NoificationFragment extends Fragment {
     RecyclerView mCardRecycler;
     ArrayList<CardItem> mCursorList;
     CardItemAdapter mCardItemAdapter;
-    TextView st,dis,tax,mtotal,progressText;
+    TextView st,dis,tax,mtotal,progressText,couponBtn;
     Button order;
     ProgressBar mProgressBar;
     private static final int ERROR_REQUEST = 9001;
@@ -73,6 +80,27 @@ public class NoificationFragment extends Fragment {
         mtotal=view.findViewById(R.id.total_price);
         order=view.findViewById(R.id.order);
         mProgressBar=view.findViewById(R.id.wait);
+        couponBtn=view.findViewById(R.id.coupon1);
+
+
+
+        couponBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences pref = getContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putInt("key_int", 1);        // Saving integer
+                editor.commit();
+
+                DashBoardFragment mDashBoardFragment=new DashBoardFragment();
+                MainActivity myActivity = (MainActivity) getContext();
+
+                android.support.v4.app.FragmentTransaction fragmentTransaction=myActivity.getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container,mDashBoardFragment);
+                fragmentTransaction.commit();
+            }
+        });
+
         progressText=view.findViewById(R.id.progressText);
         mProgressBar.setVisibility(View.INVISIBLE);
         progressText.setVisibility(View.INVISIBLE);
@@ -228,13 +256,25 @@ public class NoificationFragment extends Fragment {
             st.setText(getString(R.string.rupee_symbol)+total);
             dis.setText(getString(R.string.minus_symbol)+getString(R.string.rupee_symbol)+total*discount_tot/count*100);
             tax.setText(getString(R.string.plus_symbol)+getString(R.string.rupee_symbol)+total*6/100);
+
             grandtotal=total-(total*discount_tot/count*100)+(total*6/100);
             mtotal.setText(getString(R.string.rupee_symbol)+grandtotal);
+            SharedPreferences pref = getContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+            int success=pref.getInt("key_success", 0);
+            if(success==1)
+            {
+                Toast.makeText(getContext(), "Coupon Applied Successfully",Toast.LENGTH_LONG).show();
+                couponBtn.setText("Coupon Applied FP120");
+                grandtotal=grandtotal-(grandtotal*30/100);
+                mtotal.setText("");
+                mtotal.setText(getString(R.string.rupee_symbol)+grandtotal);
+            }
             finalGrandtotal= grandtotal;
             mCardItemAdapter.notifyDataSetChanged();
         }else{
             view.findViewById(R.id.rl_empty).setVisibility(View.VISIBLE);
         }
+
         db.close();
 
         return view;

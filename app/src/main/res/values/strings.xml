@@ -23,4 +23,6 @@
     <string name="home">Home</string>
     <string name="the_amonut_of_your_food_will_be_collected_after_the_dilvery">The amonut of your Food will be collected after the Dilvery</string>
     <string name="your_order_has_been_placed">Your Order has been Placed.</string>
+    <string name="couponCode">Enter coupon code here</string>
+    <string name="apply">Apply</string>
 </resources>
