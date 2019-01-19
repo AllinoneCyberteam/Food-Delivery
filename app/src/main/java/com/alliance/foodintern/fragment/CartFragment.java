@@ -10,7 +10,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -21,13 +20,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alliance.foodintern.MapsActivity;
 import com.alliance.foodintern.R;
-import com.alliance.foodintern.activity.MainActivity;
+import com.alliance.foodintern.activity.OrderActivity;
 import com.alliance.foodintern.adapter.CardItemAdapter;
 import com.alliance.foodintern.adapter.SqlDataBaseAdapter;
 import com.alliance.foodintern.model.CardItem;
@@ -42,7 +40,7 @@ import java.util.Locale;
  * A simple {@link Fragment} subclass.
  */
 
-public class NoificationFragment extends Fragment {
+public class CartFragment extends Fragment {
     RecyclerView mCardRecycler;
     ArrayList<CardItem> mCursorList;
     CardItemAdapter mCardItemAdapter;
@@ -54,7 +52,7 @@ public class NoificationFragment extends Fragment {
     public static final int MY_PERMISSIONS_REQUEST_COERSE = 98;
 
 
-    public NoificationFragment() {
+    public CartFragment() {
         // Required empty public constructor
     }
 
@@ -63,7 +61,7 @@ public class NoificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_noification, container, false);
+        View view= inflater.inflate(R.layout.fragment_cart, container, false);
         SqlDataBaseAdapter db = new SqlDataBaseAdapter(view.getContext());
         mCardRecycler=view.findViewById(R.id.card_recycler);
         st=view.findViewById(R.id.subtt);
@@ -83,9 +81,11 @@ public class NoificationFragment extends Fragment {
         {
             @Override
             public void onClick(View v) {
-          getCurrentLocation();
-                //Uri mapUri = Uri.parse("geo:0,0?q="+latitude+","+longitude);
 
+                getCurrentLocation();
+                //Uri mapUri = Uri.parse("geo:0,0?q="+latitude+","+longitude);
+                Intent intent= new Intent(getActivity(),OrderActivity.class);
+                startActivity(intent);
             }
 
             String longitude,latitude;

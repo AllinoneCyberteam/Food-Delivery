@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CartFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/r1_ordered_items"
+        android:layout_above="@+id/r2_price">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/card_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/r2_price"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Sub Total"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/dt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="29dp"
+            android:text="Discount"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="55dp"
+            android:text="Taxes and charges"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/ts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/tax"
+            android:text="200"
+            android:textColor="@color/blackColor"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/discountt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/dt"
+            android:text="200"
+            android:textColor="@color/blackColor"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="200"
+            android:textColor="@color/blackColor" />
+
+        <TextView
+            android:id="@+id/subtt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="200"
+            android:textColor="@color/blackColor"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="TOTAL"
+            android:textColor="@color/blackColor"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:text="order now" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/empty_cart" />
+
+        <TextView
+            android:id="@+id/subtt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="200"
+            android:textColor="@color/blackColor"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/image"
+            android:text="@string/title"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="122dp"
+            android:background="?android:attr/listDivider" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

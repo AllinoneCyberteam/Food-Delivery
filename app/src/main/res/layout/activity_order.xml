@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.NoificationFragment">
+    tools:context=".activity.OrderActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/r1_ordered_items"
-        android:layout_above="@+id/r2_price">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/card_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/r2_price"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="371dp"
+            android:ems="10"
+            android:hint="Enter  your phone number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="54dp"
+            android:layout_marginTop="245dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter Your address" />
 
         <TextView
             android:id="@+id/st"
@@ -60,8 +73,8 @@
             android:id="@+id/ts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/tax"
+            android:layout_alignParentEnd="true"
             android:text="200"
             android:textColor="@color/blackColor"
             android:textSize="10dp" />
@@ -70,8 +83,8 @@
             android:id="@+id/discountt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/dt"
+            android:layout_alignParentEnd="true"
             android:text="200"
             android:textColor="@color/blackColor"
             android:textSize="10dp" />
@@ -80,8 +93,9 @@
             android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/total"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
             android:text="200"
             android:textColor="@color/blackColor" />
 
@@ -89,8 +103,8 @@
             android:id="@+id/subtt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:text="200"
             android:textColor="@color/blackColor"
             android:textSize="10dp" />
@@ -100,7 +114,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="130dp"
             android:text="TOTAL"
             android:textColor="@color/blackColor"
             android:textStyle="bold" />
@@ -109,60 +125,14 @@
             android:id="@+id/order"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:text="order now" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="Place Order" />
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/rl_empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:visibility="invisible">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="56dp"
-            android:src="@drawable/empty_cart" />
-
-        <TextView
-            android:id="@+id/subtt4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:text="200"
-            android:textColor="@color/blackColor"
-            android:textSize="10dp" />
-
-        <TextView
-            android:id="@+id/details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/image"
-            android:text="@string/title"
-            android:textSize="20dp"
-            android:textStyle="italic" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/rl_empty"
-            android:layout_marginBottom="122dp"
-            android:background="?android:attr/listDivider" />
-
-
-    </RelativeLayout>
 
 
 </RelativeLayout>
