@@ -30,6 +30,10 @@ public class SuccessPage extends AppCompatActivity {
 
             }
         });
-        finalAddress.setText(getIntent().getStringExtra("finalAddress"));
+        if (getIntent().getStringExtra("finalAddress")!=null) {
+            finalAddress.setText(getIntent().getStringExtra("finalAddress"));
+        }else {
+            finalAddress.setText(getIntent().getStringExtra("flat") + "," + getIntent().getStringExtra("area") + "," + getIntent().getStringExtra("landmark") + "," + getIntent().getStringExtra("city") + "," + getIntent().getStringExtra("pin"));
+        }
     }
 }

@@ -20,11 +20,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-    TextView location;
+    TextView location,changeLocation;
     EditText address,landmark;
     private GoogleMap mMap;
     Button confirmLocation;
     double lat,lon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         location=findViewById(R.id.location);
         address=findViewById(R.id.address);
         landmark=findViewById(R.id.landmark);
+        changeLocation=findViewById(R.id.changeLocation);
         confirmLocation=findViewById(R.id.confirm_location);
 
-final String tot=getIntent().getStringExtra("totalAmount");
+        final String tot=getIntent().getStringExtra("totalAmount");
+
+        changeLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),ChangeLoactionActivity.class);
+                intent.putExtra("totalAmount",tot);
+                startActivity(intent);
+
+            }
+        });
+
+
 
 
         confirmLocation.setOnClickListener(new View.OnClickListener() {
