@@ -24,7 +24,7 @@ public class SqlDataBaseAdapter
     static final String DATABASE_TABLE = "foodDetails";
     static final int DATABASE_VERSION = 1;
 
-    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price text not null, food_items integer not null,food_image text not null );";
+    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price text not null ,food_items integer not null,food_image text not null );";
 
     private final Context ctx;
     private DatabaseHelper DbHelper;
@@ -82,11 +82,14 @@ public class SqlDataBaseAdapter
         initialValues.put(KEY_IMAGE,image);
 
         return db.insert(DATABASE_TABLE, null, initialValues);
+
     }
+
+
     public Cursor retrieve()
     {
         return db.query(DATABASE_TABLE, new String[] {KEY_OrderID, KEY_FoodName,KEY_FoodDescription,KEY_Discount,
-                KEY_TotalPrice,KEY_NumberOfItems}, null, null, null, null, null);
+                KEY_TotalPrice,KEY_NumberOfItems,KEY_IMAGE}, null, null, null, null, null);
     }
 
 }

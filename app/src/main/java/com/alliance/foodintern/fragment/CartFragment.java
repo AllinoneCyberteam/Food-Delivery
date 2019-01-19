@@ -107,8 +107,7 @@ public class CartFragment extends Fragment {
             do {
                 CardItem item=new CardItem();
                 String price=c.getString(4);
-                String image=c.getString(5);
-
+                String image=c.getString(6);
                 int discount=Integer.valueOf(c.getString(3));
                 discount_tot+=discount;
                 count++;
