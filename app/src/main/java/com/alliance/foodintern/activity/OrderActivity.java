@@ -75,8 +75,10 @@ public class OrderActivity extends AppCompatActivity {
                 db.child("phone").setValue(phn);
                 db.child("foods").setValue(foods);
                 db.child("address").setValue(addrs);
-
-
+                Toast.makeText(getApplicationContext(),"Your order have been placed",Toast.LENGTH_SHORT);
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -84,9 +86,8 @@ public class OrderActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"getting location", Toast.LENGTH_SHORT).show();
                 getCurrentLocation();
-                addrs=longitude+","+latitude+","+cityName;
-                address.setText(addrs);
 
             }
         });
@@ -145,6 +146,9 @@ public class OrderActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             String s = longitude + "\n" + latitude + "\n\nMy Current City is: " + cityName;
+            addrs=longitude+","+latitude+","+cityName;
+            address.setText(addrs);
+
             Toast.makeText(getBaseContext(), ""+s, Toast.LENGTH_SHORT).show();
            /*
             Intent mapIntent = new Intent(getActivity(), MapsActivity.class);

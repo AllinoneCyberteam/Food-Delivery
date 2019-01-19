@@ -16,13 +16,15 @@ public class SqlDataBaseAdapter
     static final String KEY_Discount = "food_discount";
     static final String KEY_TotalPrice = "food_price";
     static final String KEY_NumberOfItems= "food_items";
+    static final String KEY_IMAGE= "food_image";
+
     static final String TAG = "SqlDataBaseAdapter";
 
     static final String DATABASE_NAME = "MyDB";
     static final String DATABASE_TABLE = "foodDetails";
     static final int DATABASE_VERSION = 1;
 
-    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price text not null, food_items integer not null);";
+    static final String DATABASE_CREATE ="create table foodDetails(order_id integer primary key autoincrement,food_name text not null, food_desc text not null, food_discount int not null, food_price text not null, food_items integer not null,food_image text not null );";
 
     private final Context ctx;
     private DatabaseHelper DbHelper;
@@ -68,7 +70,7 @@ public class SqlDataBaseAdapter
     {
         DbHelper.close();
     }
-    public long insert(String name,String des,Integer discount,String price,Integer no)
+    public long insert(String name,String des,Integer discount,String price,Integer no,String image)
     {
         ContentValues initialValues = new ContentValues();
 
@@ -77,6 +79,7 @@ public class SqlDataBaseAdapter
         initialValues.put(KEY_Discount, discount);
         initialValues.put(KEY_TotalPrice, price);
         initialValues.put(KEY_NumberOfItems, no);
+        initialValues.put(KEY_IMAGE,image);
 
         return db.insert(DATABASE_TABLE, null, initialValues);
     }

@@ -82,7 +82,7 @@ public class DetailsfoodActivity extends AppCompatActivity
 
                 SqlDataBaseAdapter db = new SqlDataBaseAdapter(getApplication());
                 db.open();
-                long id = db.insert(getIntent().getStringExtra("food_name"),getIntent().getStringExtra("details_of_food"),discount,price_total.getText().toString(),noOfItems);
+                long id = db.insert(getIntent().getStringExtra("food_name"),getIntent().getStringExtra("details_of_food"),discount,price_total.getText().toString(),noOfItems,getIntent().getStringExtra("food_image"));
                 if(id>=1)
                 {
                     Toast.makeText(DetailsfoodActivity.this, "Items Added to the Cart Successfully...", Toast.LENGTH_SHORT).show();

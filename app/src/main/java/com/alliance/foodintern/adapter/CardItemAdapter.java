@@ -40,7 +40,9 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         final CardItem data=cardItems.get(position);
-
+        Glide.with(mCtx)
+                .load(data.getImage())
+                .into(holder.imageView);
         holder.name.setText(data.getFood_name());
         holder.price.setText(data.getFood_price());
         Log.d("TAG", "onBindViewHolder: "+data.getFood_price());
@@ -56,9 +58,10 @@ public class CardItemAdapter extends RecyclerView.Adapter<CardItemAdapter.myView
     public class myViewHolder extends RecyclerView.ViewHolder{
 
         TextView name,price;
-
+        ImageView imageView;
         public myViewHolder(View itemView) {
             super(itemView);
+            imageView=itemView.findViewById(R.id.imageView);
             name=itemView.findViewById(R.id.c_name);
             price=itemView.findViewById(R.id.c_price);
         }

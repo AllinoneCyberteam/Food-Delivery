@@ -107,6 +107,8 @@ public class CartFragment extends Fragment {
             do {
                 CardItem item=new CardItem();
                 String price=c.getString(4);
+                String image=c.getString(5);
+
                 int discount=Integer.valueOf(c.getString(3));
                 discount_tot+=discount;
                 count++;
@@ -114,6 +116,7 @@ public class CartFragment extends Fragment {
                 total+=temp;
                 item.setFood_price(price);
                 item.setFood_name(c.getString(1));
+                item.setImage(image);
                 mCursorList.add(item);
 
             } while (c.moveToNext());
