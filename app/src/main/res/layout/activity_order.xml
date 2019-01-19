@@ -34,11 +34,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="54dp"
-            android:layout_marginTop="245dp"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="247dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Enter Your address" />
+            android:hint="Enter Your address"
+            android:inputType="textPersonName" />
 
         <TextView
             android:id="@+id/st"
@@ -130,6 +130,16 @@
             android:layout_marginStart="0dp"
             android:layout_marginBottom="0dp"
             android:text="Place Order" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="243dp"
+            android:layout_marginEnd="40dp"
+            app:srcCompat="@drawable/ic_my_location_black_24dp" />
 
     </RelativeLayout>
 

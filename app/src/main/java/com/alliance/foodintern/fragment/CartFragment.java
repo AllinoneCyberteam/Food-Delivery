@@ -82,92 +82,15 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                getCurrentLocation();
+               // getCurrentLocation();
                 //Uri mapUri = Uri.parse("geo:0,0?q="+latitude+","+longitude);
                 Intent intent= new Intent(getActivity(),OrderActivity.class);
                 startActivity(intent);
             }
 
-            String longitude,latitude;
-                private void getCurrentLocation() {
-
-                    LocationManager locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-                    LocationListener locationListener = new MyLocationListener();
-                    if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                            && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                                MY_PERMISSIONS_REQUEST_LOCATION);
-                        ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                                MY_PERMISSIONS_REQUEST_COERSE);
-                    }
-
-                    if (locationManager != null) {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
-                    }
-                }
-
-                 class MyLocationListener implements LocationListener
-                {
-
-
-                    @Override
-                    public void onLocationChanged(android.location.Location loc) {
-
-                         longitude = "Longitude: " + loc.getLongitude();
-                        Log.v(TAG, longitude);
-                         latitude = "Latitude: " + loc.getLatitude();
-                        Log.v(TAG, latitude);
-
-                        /*------- To get city name from coordinates -------- */
-                        String cityName = null;
-
-                        try {
-                            Locale pname = Locale.getDefault();
-                            if (pname != null) {
-                                Geocoder gcd = new Geocoder(getContext(), pname);
-                                List<Address> addresses;
-                                addresses = gcd.getFromLocation(loc.getLatitude(),
-                                        loc.getLongitude(), 1);
-                                if (addresses.size() > 0) {
-                                    System.out.println(addresses.get(0).getLocality());
-                                    cityName = addresses.get(0).getSubLocality();
-
-                                }
-                            }
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        String s = longitude + "\n" + latitude + "\n\nMy Current City is: " + cityName;
-                        Toast.makeText(getContext(), ""+s, Toast.LENGTH_SHORT).show();
-                        Intent mapIntent = new Intent(getActivity(), MapsActivity.class);
-                        mapIntent.putExtra("lat",latitude);
-                        mapIntent.putExtra("lon",longitude);
-                        mapIntent.putExtra("name",cityName);
-                        //mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
-
-
-                    }
 
 
 
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                    }
-
-
-                    public void onProviderEnabled(String provider) {
-
-                    }
-
-
-                    public void onProviderDisabled(String provider) {
-
-                    }
-                }
 
         });
 
