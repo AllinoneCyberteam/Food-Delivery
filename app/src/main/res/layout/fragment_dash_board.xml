@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/r1_offer"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="200dp"
     tools:context=".fragment.DashBoardFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -23,7 +28,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="54dp"
         android:textSize="15dp"
-        android:text="50% off upto Rs 100 on first two orders" />
+        android:text="30% off upto Rs 100 on first two orders" />
 
     <TextView
         android:id="@+id/t3"
@@ -43,5 +48,31 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="126dp"
         android:text="FP120"
-        android:enabled="false"/>
+        android:id="@+id/couponCode"/>
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@id/r1_offer"
+        android:id="@+id/r2_offers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/couponCode" />
+
+        <Button
+            android:id="@+id/apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="68dp"
+            android:text="@string/apply" />
+
+    </RelativeLayout>
 </RelativeLayout>

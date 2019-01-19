@@ -33,6 +33,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import static com.alliance.foodintern.fragment.NoificationFragment.MY_PERMISSIONS_REQUEST_COERSE;
+import static com.alliance.foodintern.fragment.NoificationFragment.MY_PERMISSIONS_REQUEST_LOCATION;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     boolean firstTime = false;
@@ -54,13 +57,16 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         }
 
+
+
         PostDelayedMethod();
     }
 
 
 
 
-    private void PostDelayedMethod(){
+    private void PostDelayedMethod()
+    {
 
 
 
@@ -89,6 +95,18 @@ public class SplashScreenActivity extends AppCompatActivity {
                         /*Intent intent = new Intent(MainActivity.this, OnBoardingActivity.class);
                         startActivity(intent);
                         */
+                        new CountDownTimer(5000, 1000) {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }.start();
 
                     } else {
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);

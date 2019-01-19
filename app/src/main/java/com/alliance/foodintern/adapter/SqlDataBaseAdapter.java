@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 
 public class SqlDataBaseAdapter
@@ -79,6 +80,10 @@ public class SqlDataBaseAdapter
         initialValues.put(KEY_NumberOfItems, no);
 
         return db.insert(DATABASE_TABLE, null, initialValues);
+    }
+    public boolean delete(int oid)
+    {
+        return db.delete(DATABASE_TABLE, KEY_OrderID + "=" + oid, null) > 0;
     }
     public Cursor retrieve()
     {
