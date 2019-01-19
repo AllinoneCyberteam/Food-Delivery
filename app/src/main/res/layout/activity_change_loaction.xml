@@ -15,7 +15,7 @@
         android:layout_marginTop="19dp"
         android:textColor="@color/blackColor"
         android:textSize="20dp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         android:text="Enter a dilvery address" />
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="192dp"
-        android:hint="Area,Colony,Street,Sector,Village" />
+        android:hint="Area,Colony,Street,Sector" />
 
     <EditText
         android:id="@+id/flat"
@@ -52,7 +52,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="134dp"
-        android:hint="Flat,House no.,Building,Comapny,Apartment" />
+        android:hint="Flat,House no.,Building,Company,Apartment" />
 
     <EditText
         android:id="@+id/pincode"

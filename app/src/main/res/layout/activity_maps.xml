@@ -27,7 +27,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:text="Change Location"
-            android:textStyle="bold"
+            android:textStyle="italic"
             android:textSize="20dp"
             android:textColor="@color/lightBlueColor" />
     </RelativeLayout>
