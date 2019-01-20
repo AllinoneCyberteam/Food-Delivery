@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
         name= findViewById(R.id.name);
         phone= findViewById(R.id.phone);
         password= findViewById(R.id.password);
-        signUp= findViewById(R.id.sign_up);
+        signUp= findViewById(R.id.button);
         final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("User");
 
         signUp.setOnClickListener(new View.OnClickListener() {
