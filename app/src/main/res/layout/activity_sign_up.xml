@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.SignUpActivity">
 
     <EditText
         android:id="@+id/phone"
-        android:hint="Enter your phone number here"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/password"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="109dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="202dp"
         android:ems="10"
+        android:hint="Enter your phone number here"
         android:inputType="phone" />
 
     <EditText
         android:id="@+id/password"
-        android:hint="Enter your password here"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="223dp"
+        android:layout_marginTop="286dp"
         android:ems="10"
+        android:hint="Enter your password here"
         android:inputType="textPassword" />
 
     <Button
@@ -36,5 +37,19 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="135dp"
         android:layout_marginBottom="155dp"
-        android:text="Sign In" />
+        android:text="Sign Up" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/phone"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="123dp"
+        android:ems="10"
+        android:hint="Enter your name"
+        android:inputType="textPersonName" />
+
+
 </RelativeLayout>

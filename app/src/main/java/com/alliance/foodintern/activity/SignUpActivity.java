@@ -2,7 +2,6 @@ package com.alliance.foodintern.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,51 +18,48 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity {
-EditText password, phone;
-Button signIn;
+public class SignUpActivity extends AppCompatActivity {
+
+    EditText name, phone, password;
+    Button signUp;
+
+
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        password= findViewById(R.id.password);
+        setContentView(R.layout.activity_sign_up);
+
+        name= findViewById(R.id.name);
         phone= findViewById(R.id.phone);
-
-        signIn=  findViewById(R.id.button);
-
+        password= findViewById(R.id.password);
+        signUp= findViewById(R.id.sign_up);
         final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("User");
 
-        signIn.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+
+                final ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this);
                 progressDialog.setMessage("Please wait");
                 progressDialog.show();
-
                 databaseReference.addValueEventListener(new ValueEventListener() {
-
-
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        progressDialog.dismiss();
-
                         if(dataSnapshot.child(phone.getText().toString()).exists()) {
-
-
-                            User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
-                            if (user.getPassword().equals(password.getText().toString())) {
-                                Toast.makeText(LoginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent( LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-
-                            } else
-                                Toast.makeText(LoginActivity.this, "failed to sign in", Toast.LENGTH_SHORT).show();
-
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(),"already registered",Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(LoginActivity.this,"NO user exist Sign UP First",Toast.LENGTH_SHORT).show();
 
+                            progressDialog.dismiss();
+                            User user= new User(name.getText().toString(),password.getText().toString());
+                            databaseReference.child(phone.getText().toString()).setValue(user);
+                            Toast.makeText(SignUpActivity.this,"Registered",Toast.LENGTH_SHORT);
+                            Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
+
+
                     }
 
                     @Override
@@ -75,6 +71,8 @@ Button signIn;
 
             }
         });
+
+
 
 
     }

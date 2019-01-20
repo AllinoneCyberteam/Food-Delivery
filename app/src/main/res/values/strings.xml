@@ -13,4 +13,16 @@
     <string name="discount_applied">Discount Applied:</string>
     <string name="minus">+</string>
     <string name="title_activity_maps">Map</string>
+    <string name="plus_symbol">+</string>
+    <string name="minus_symbol">-</string>
+    <string name="please_wait_while_we_are_retreiving_your_current_location">Please wait..while we are retreiving your current location.</string>
+    <string name="sub_total">Sub Total</string>
+    <string name="discount_label">Discount</string>
+    <string name="taxes_and_charges">Taxes and charges</string>
+    <string name="total">TOTAL</string>
+    <string name="home">Home</string>
+    <string name="the_amonut_of_your_food_will_be_collected_after_the_dilvery">The amonut of your Food will be collected after the Dilvery</string>
+    <string name="your_order_has_been_placed">Your Order has been Placed.</string>
+    <string name="couponCode">Enter coupon code here</string>
+    <string name="apply">Apply</string>
 </resources>

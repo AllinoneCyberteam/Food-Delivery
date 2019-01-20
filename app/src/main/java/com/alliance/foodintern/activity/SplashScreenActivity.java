@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     boolean firstTime = false;
@@ -54,13 +55,16 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         }
 
+
+
         PostDelayedMethod();
     }
 
 
 
 
-    private void PostDelayedMethod(){
+    private void PostDelayedMethod()
+    {
 
 
 
@@ -86,9 +90,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                     if (firstTime) {
 
                         //TODO: creating the hint activity
-                        /*Intent intent = new Intent(MainActivity.this, OnBoardingActivity.class);
+                        Intent intent = new Intent(SplashScreenActivity.this, RegisterOrLogin.class);
                         startActivity(intent);
-                        */
 
                     } else {
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);

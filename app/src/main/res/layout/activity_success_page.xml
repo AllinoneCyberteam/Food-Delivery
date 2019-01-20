@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SuccessPage">
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/lightBlueColor"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="72dp"
+        android:text="@string/your_order_has_been_placed" />
+
+    <ImageView
+        android:id="@+id/success_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:src="@drawable/success" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="239dp"
+        android:layout_marginStart="28dp"
+        android:text="Address :" />
+
+    <TextView
+        android:id="@+id/finalLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:text="Location" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="195dp"
+        android:layout_marginStart="13dp"
+        android:text="Amount to be Paid" />
+
+    <TextView
+        android:id="@+id/finalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="163dp"
+        android:layout_toStartOf="@+id/success_img"
+        android:textColor="@color/redColor"
+        android:textStyle="bold"
+        android:text="@string/rupee_symbol"
+        />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="92dp"
+        android:textColor="@color/blackColor"
+        android:text="@string/the_amonut_of_your_food_will_be_collected_after_the_dilvery" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/home_button"
+        android:layout_centerHorizontal="true"
+        android:text="Click here for Main Page" />
+
+    <TextView
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="147dp"
+        android:text="@string/home"
+        android:textAllCaps="true"
+        android:textColor="@color/redColor"
+        android:textColorLink="@color/lightBlueColor"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+</RelativeLayout>

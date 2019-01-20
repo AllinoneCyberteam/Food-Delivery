@@ -1,7 +1,7 @@
 package com.alliance.foodintern.model;
 
 public class CardItem {
-    String food_name,food_price,image;
+    String food_name,food_price,image,id;
 
     public CardItem(String food_name, String food_price, String image) {
         this.food_name = food_name;
@@ -40,4 +40,13 @@ public class CardItem {
     public void setFood_price(String food_price) {
         this.food_price = food_price;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }

@@ -22,8 +22,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.alliance.foodintern.MapsActivity;
 import com.alliance.foodintern.R;
 import com.alliance.foodintern.activity.OrderActivity;
 import com.alliance.foodintern.adapter.CardItemAdapter;

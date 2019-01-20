@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 
 public class SqlDataBaseAdapter
@@ -84,12 +85,14 @@ public class SqlDataBaseAdapter
         return db.insert(DATABASE_TABLE, null, initialValues);
 
     }
-
-
+    public boolean delete(int oid)
+    {
+        return db.delete(DATABASE_TABLE, KEY_OrderID + "=" + oid, null) > 0;
+    }
     public Cursor retrieve()
     {
         return db.query(DATABASE_TABLE, new String[] {KEY_OrderID, KEY_FoodName,KEY_FoodDescription,KEY_Discount,
-                KEY_TotalPrice,KEY_NumberOfItems,KEY_IMAGE}, null, null, null, null, null);
+                KEY_TotalPrice,KEY_NumberOfItems}, null, null, null, null, null);
     }
 
 }

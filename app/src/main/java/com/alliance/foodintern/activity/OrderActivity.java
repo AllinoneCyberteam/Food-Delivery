@@ -20,7 +20,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.alliance.foodintern.MapsActivity;
 import com.alliance.foodintern.R;
 import com.alliance.foodintern.adapter.SqlDataBaseAdapter;
 import com.alliance.foodintern.model.CardItem;

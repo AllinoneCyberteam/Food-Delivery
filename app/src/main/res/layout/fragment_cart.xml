@@ -7,9 +7,9 @@
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
+        android:id="@+id/r1_ordered_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/r1_ordered_items"
         android:layout_above="@+id/r2_price">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/card_recycler"
@@ -18,6 +18,24 @@
 
         </android.support.v7.widget.RecyclerView>
 
+        <ProgressBar
+            android:id="@+id/wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="204dp" />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/wait"
+            android:layout_marginStart="19dp"
+            android:text="@string/please_wait_while_we_are_retreiving_your_current_location" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -25,7 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/st"
@@ -33,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Sub Total"
+            android:text="@string/sub_total"
             android:textSize="10dp" />
 
         <TextView
@@ -43,7 +62,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="29dp"
-            android:text="Discount"
+            android:text="@string/discount_label"
             android:textSize="10dp" />
 
         <TextView
@@ -53,7 +72,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="55dp"
-            android:text="Taxes and charges"
+            android:text="@string/taxes_and_charges"
             android:textSize="10dp" />
 
         <TextView
@@ -96,9 +115,20 @@
             android:textSize="10dp" />
 
         <TextView
+            android:id="@+id/coupon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="79dp"
+            android:text="APPLY COUPON."
+            android:textColor="@color/lightBlueColor" />
+
+        <TextView
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:text="TOTAL"
