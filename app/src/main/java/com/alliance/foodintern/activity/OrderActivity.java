@@ -111,6 +111,7 @@ public class OrderActivity extends AppCompatActivity {
         if (locationManager != null) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
         }
+
     }
 
     class MyLocationListener implements LocationListener
